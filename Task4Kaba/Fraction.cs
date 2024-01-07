@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task4Kaba
 {
-    internal class Fraction
+    public class Fraction
     {
         private int numerator;
         private int denominator;

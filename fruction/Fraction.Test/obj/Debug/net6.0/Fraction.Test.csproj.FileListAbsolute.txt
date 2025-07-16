@@ -1,0 +1,7 @@
+D:\fruction\Fraction.Test\bin\Debug\net6.0\CoverletSourceRootsMapping
+D:\fruction\Fraction.Test\obj\Debug\net6.0\Fraction.Test.csproj.AssemblyReference.cache
+D:\fruction\Fraction.Test\obj\Debug\net6.0\Fraction.Test.GeneratedMSBuildEditorConfig.editorconfig
+D:\fruction\Fraction.Test\obj\Debug\net6.0\Fraction.Test.AssemblyInfoInputs.cache
+D:\fruction\Fraction.Test\obj\Debug\net6.0\Fraction.Test.AssemblyInfo.cs
+D:\fruction\Fraction.Test\obj\Debug\net6.0\Fraction.Test.csproj.CoreCompileInputs.cache
+D:\fruction\Fraction.Test\obj\Debug\net6.0\Fraction.Test.sourcelink.json

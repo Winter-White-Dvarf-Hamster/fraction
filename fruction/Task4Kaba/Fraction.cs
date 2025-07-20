@@ -36,11 +36,13 @@ namespace Task4Kaba
         
         public Fraction Add(Fraction f)
         {
-            return new Fraction(this.numerator * f.denominator + f.numerator * denominator, denominator * f.denominator);
+            int gcd = GCD(Math.Abs(this.numerator * f.denominator + f.numerator * denominator), Math.Abs(denominator * f.denominator));
+            return new Fraction(this.numerator * f.denominator / gcd + f.numerator * denominator / gcd, denominator * f.denominator / gcd);
         }
         public Fraction Sub(Fraction f)
         {
-            return new Fraction(this.numerator * f.denominator - f.numerator * denominator, denominator * f.denominator);
+            int gcd = GCD(Math.Abs(this.numerator * f.denominator - f.numerator * denominator), Math.Abs(denominator * f.denominator));
+            return new Fraction(this.numerator * f.denominator / gcd - f.numerator * denominator / gcd, denominator * f.denominator / gcd);
         }
         public Fraction Div(Fraction f)
         {

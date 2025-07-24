@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,27 +36,33 @@ namespace Task4Kaba
         
         public Fraction Add(Fraction f)
         {
-            return new Fraction(this.numerator * f.denominator + f.numerator * denominator, denominator * f.denominator);
+            int gcd = GCD(Math.Abs(this.numerator * f.denominator + f.numerator * denominator), Math.Abs(denominator * f.denominator));
+            return new Fraction((this.numerator * f.denominator + f.numerator * denominator) / gcd, (denominator * f.denominator) / gcd);
         }
         public Fraction Sub(Fraction f)
         {
-            return new Fraction(this.numerator * f.denominator - f.numerator * denominator, denominator * f.denominator);
+            int gcd = GCD(Math.Abs(this.numerator * f.denominator - f.numerator * denominator), Math.Abs(denominator * f.denominator));
+            return new Fraction(this.numerator * f.denominator / gcd - f.numerator * denominator / gcd, denominator * f.denominator / gcd);
         }
         public Fraction Div(Fraction f)
         {
-            return new Fraction(this.numerator * f.denominator, denominator * f.numerator);
+            int gcd = GCD(Math.Abs(this.numerator * f.denominator), Math.Abs(denominator * f.numerator));
+            return new Fraction(this.numerator * f.denominator / gcd, denominator * f.numerator / gcd);
         }
         public Fraction Div(int val)
         {
-            return new Fraction(this.numerator, denominator * val);
+            int gcd = GCD(Math.Abs(this.numerator), Math.Abs(denominator * val));
+            return new Fraction(this.numerator / gcd, denominator * val / gcd);
         }
         public Fraction Mult(Fraction f)
         {
-            return new Fraction(this.numerator*f.numerator, denominator * f.denominator); 
+            int gcd = GCD(Math.Abs(this.numerator * f.numerator), Math.Abs(denominator * f.denominator));
+            return new Fraction(this.numerator * f.numerator / gcd, denominator * f.denominator / gcd); 
         }
         public Fraction Mult(int val)
         {
-            return new Fraction(this.numerator * val, denominator);
+            int gcd = GCD(Math.Abs(this.numerator * val), Math.Abs(denominator));
+            return new Fraction(this.numerator * val / gcd, denominator / gcd);
         }
 
         public override string ToString()
@@ -65,6 +72,22 @@ namespace Task4Kaba
         public double ToDouble()
         {
             return (double)numerator / denominator;
+        }
+        public Fraction Reduce()
+        {
+            int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
+            return new Fraction(numerator / gcd, denominator / gcd);
+        }
+        private int GCD(int a, int b)
+        {
+            while (b != 0)
+            {
+                int temp = b;
+                b = a % b;
+                a = temp;
+        
+            }
+            return a;
         }
     }
 }
